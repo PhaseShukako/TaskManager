@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import './App.css';
 import InputData from './Components/InputData';
-import Table from './Components/Table';
+import Table from './Components/UpdateTaskForm';
 
 function App() {
   const [tasks, setTasks] = useState([]);

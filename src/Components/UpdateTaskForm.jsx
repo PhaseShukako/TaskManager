@@ -1,4 +1,5 @@
 import React from 'react';
+import UpdateTaskForm from './UpdateTaskForm';
 
 function Table({ tasks, onDeleteTask, onUpdateTask }) {
   return (
