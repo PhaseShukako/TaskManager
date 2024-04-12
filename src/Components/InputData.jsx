@@ -1,26 +1,30 @@
 import React, { useState } from 'react';
 
 function InputData({ onAddTask }) {
-  const [homework, setHomework] = useState('');
+  const [taskDescription, setTaskDescription] = useState('');
   const [subject, setSubject] = useState('');
   const [deadline, setDeadline] = useState('');
 
-  const handleAddTask = () => {
-    if (homework.trim() !== '' && subject.trim() !== '' && deadline.trim() !== '') {
-      onAddTask({ homework, subject, deadline });
-      setHomework('');
+  const handleAddTask = (e) => {
+    e.preventDefault(); // Prevent form submission
+    if (taskDescription.trim() !== '' && subject.trim() !== '' && deadline.trim() !== '') {
+      onAddTask({ description: taskDescription, subject, deadline });
+      setTaskDescription('');
       setSubject('');
       setDeadline('');
+      // Optionally, provide visual feedback to the user that the task has been added
+    } else {
+      // Optionally, display an error message indicating required fields
     }
   };
 
   return (
-    <div className="input-section">
+    <form className="input-section" onSubmit={handleAddTask}>
       <input
         type="text"
-        placeholder="Homework"
-        value={homework}
-        onChange={(e) => setHomework(e.target.value)}
+        placeholder="Task Description"
+        value={taskDescription}
+        onChange={(e) => setTaskDescription(e.target.value)}
       />
       <input
         type="text"
@@ -33,8 +37,8 @@ function InputData({ onAddTask }) {
         value={deadline}
         onChange={(e) => setDeadline(e.target.value)}
       />
-      <button onClick={handleAddTask}>Add Task</button>
-    </div>
+      <button type="submit">Add Task</button>
+    </form>
   );
 }
 

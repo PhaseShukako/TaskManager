@@ -43,7 +43,7 @@ function App() {
 
   return (
     <div className={`App ${darkTheme ? 'dark' : 'blue'}`}>
-      <h1>Todo Task Dashboard</h1>
+      <h1>Todo Task</h1>
       <div className="theme-toggle">
         <button onClick={toggleTheme}>Toggle Theme</button>
       </div>
