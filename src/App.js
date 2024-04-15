@@ -2,8 +2,10 @@ import React, { useState, useEffect } from 'react';
 import './App.css';
 import InputData from './Components/InputData';
 import Table from './Components/UpdateTaskForm';
+import Navbar from './Components/Navbar';
 
 function App() {
+
   const [tasks, setTasks] = useState([]);
   const [darkTheme, setDarkTheme] = useState(false);
 
@@ -43,6 +45,7 @@ function App() {
 
   return (
     <div className={`App ${darkTheme ? 'dark' : 'blue'}`}>
+      <Navbar /> {/* Use the Navbar component */}
       <h1>Todo Task</h1>
       <div className="theme-toggle">
         <button onClick={toggleTheme}>Toggle Theme</button>
